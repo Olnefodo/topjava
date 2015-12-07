@@ -12,7 +12,7 @@
     <servlet>
         <servlet-name>mealServlet</servlet-name>
         <servlet-class>ru.javawebinar.topjava.web.MealServlet</servlet-class>
-    </servlet>
+     </servlet>
 
     <servlet-mapping>
         <servlet-name>mealServlet</servlet-name>
