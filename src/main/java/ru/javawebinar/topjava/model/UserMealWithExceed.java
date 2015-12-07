@@ -1,6 +1,11 @@
 package ru.javawebinar.topjava.model;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * GKislin
@@ -8,6 +13,8 @@ import java.time.LocalDateTime;
  */
 public class UserMealWithExceed {
     protected final LocalDateTime dateTime;
+
+    protected List<UserMealWithExceed> listWithExceed = new ArrayList<>();
 
     protected final String description;
 
@@ -21,6 +28,13 @@ public class UserMealWithExceed {
         this.description = description;
         this.calories = calories;
         this.exceed = exceed;
+    }
+
+    public static List<UserMealWithExceed> getUserMealWithExceed (List<UserMeal> meals, int caloriesPerDay){
+        Map<LocalDate, Integer> calSumByDate = meals.stream().
+                collect(Collectors.groupingBy(um -> um.getDateTime().toLocalDate(), Collectors.summingInt(UserMeal::getCalories)));
+        return meals.stream().map(um -> new UserMealWithExceed(um.getDateTime(), um.getDescription(), um.getCalories(),
+                calSumByDate.get(um.getDateTime().toLocalDate()) > caloriesPerDay)).collect(Collectors.toList());
     }
 
     @Override
