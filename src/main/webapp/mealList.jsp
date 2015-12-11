@@ -12,6 +12,13 @@
     <title>Title</title>
 </head>
 <body>
+<form action="/mealList" method="post">
+    <h3>Add new meal:</h3><br/>
+    Date : <input type="text" name="date"><br/>
+    Description : <input type="text" name="description"><br/>
+    Calories : <input type="text" name="calories"><br/>
+    <input type="submit">
+</form>
 <table border="20px">
     <tr>
         <th>date</th>
@@ -20,11 +27,11 @@
         <th>exceed</th>
     </tr>
     <c:forEach var="lists" items="${list}">
-    <tr bgcolor="${lists.exceed == true ? 'red' : 'green'}">
-        <td>${lists.dateTime}</td>
-        <td>${lists.description}</td>
-        <td>${lists.calories}</td>
-        <td>${lists.exceed}</td>
+    <tr bgcolor="${lists.exceed eq true ? 'red' : 'green'}">
+        <td><c:out value="${lists.dateTime}"/></td>
+        <td><c:out value="${lists.description}"/></td>
+        <td><c:out value="${lists.calories}"/></td>
+        <td><c:out value="${lists.exceed}"/></td>
     </tr>
     </c:forEach>
 </table>

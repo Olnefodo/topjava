@@ -21,6 +21,6 @@ public class Dao {
             list.add(new UserMeal(LocalDateTime.of(2015, Month.MAY, 31,13,0), "Обед", 500));
             list.add(new UserMeal(LocalDateTime.of(2015, Month.MAY, 31,20,0), "Ужин", 510));
     }
-    public void add(LocalDateTime t, String description, int calories){list.add(new UserMeal(t, description, calories));}
+    public static void add(LocalDateTime t, String description, int calories){list.add(new UserMeal(t, description, calories));}
     public void delete(UserMealWithExceed user){list.remove(user);}
 }
