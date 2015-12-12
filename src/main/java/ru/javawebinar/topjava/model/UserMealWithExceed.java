@@ -4,14 +4,16 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
+
 
 /**
  * GKislin
  * 11.01.2015.
  */
 public class UserMealWithExceed {
+
+    protected Integer id;
+
     protected final LocalDateTime dateTime;
 
     protected List<UserMealWithExceed> listWithExceed = new ArrayList<>();
@@ -30,12 +32,31 @@ public class UserMealWithExceed {
         this.exceed = exceed;
     }
 
-    public static List<UserMealWithExceed> getUserMealWithExceed (List<UserMeal> meals, int caloriesPerDay){
-        Map<LocalDate, Integer> calSumByDate = meals.stream().
-                collect(Collectors.groupingBy(um -> um.getDateTime().toLocalDate(), Collectors.summingInt(UserMeal::getCalories)));
-        return meals.stream().map(um -> new UserMealWithExceed(um.getDateTime(), um.getDescription(), um.getCalories(),
-                calSumByDate.get(um.getDateTime().toLocalDate()) > caloriesPerDay)).collect(Collectors.toList());
+
+    public String getDescription() {
+        return description;
     }
+
+    public int getCalories() {
+        return calories;
+    }
+
+    public boolean isExceed() {
+        return exceed;
+    }
+
+
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+
+
 
     @Override
     public String toString() {
