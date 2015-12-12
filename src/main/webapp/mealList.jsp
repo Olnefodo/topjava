@@ -21,11 +21,11 @@
             <td colspan="2">actions</td>
         </tr>
     </thead>
-    <c:forEach items="meal" var="meals">
+    <c:forEach items="meals" var="meal">
         <tr>
-            <td>${meals.dateTime}</td>
-            <td>${meals.description}</td>
-            <td>${meals.calories}</td>
+            <td>${meal.dateTime}</td>
+            <td>${meal.description}</td>
+            <td>${meal.calories}</td>
         </tr>
     </c:forEach>
 
