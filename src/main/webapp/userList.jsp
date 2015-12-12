@@ -5,7 +5,7 @@
     <title>User list</title>
 </head>
 <body>
+<a href="index.html">HOME</a>
 <h2>User list</h2>
-</table>
 </body>
 </html>
