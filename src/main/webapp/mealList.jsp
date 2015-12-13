@@ -28,10 +28,8 @@
         <tr>
             <td>
                 <fmt:parseDate value="${meal.dateTime}" pattern="y-M-dd'T'h:m" var="parsedDate" />
-                <fmt:formatDate pattern="YYYY.MM.dd HH:mm" value="${parsedDate}" var="formattedDate"/>
-
-
-            ${formattedDate}</td>
+                <fmt:formatDate pattern="yyyy.MM.dd HH:mm" value="${parsedDate}"/>
+            </td>
             <td>${meal.description}</td>
             <td>${meal.calories}</td>
             <td><a href="/mealList?action=delete&id=${meal.id}">delete</a> </td>
