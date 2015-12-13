@@ -24,6 +24,12 @@ public class InMemoryUserMeal implements UserMealRepository {
         save(new UserMeal(LocalDateTime.of(2015, Month.MAY, 31,13,0), "Обед", 500));
         save(new UserMeal(LocalDateTime.of(2015, Month.MAY, 31,20,0), "Ужин", 510));
     }
+
+    @Override
+    public UserMeal get(int id) {
+        return repository.get(id);
+    }
+
     @Override
     public UserMeal save(UserMeal meal) {
         if (meal.isNew(meal)){
