@@ -17,11 +17,12 @@
     </ld>
     <ld>
         <dt>calories</dt>
-        <dd><input type="dnumber" value="${meal.calories}" name="calories"></dd>
+        <dd><input type="number" value="${meal.calories}" name="calories"></dd>
     </ld>
     <button type="submit">Save</button>
     <button onclick="window.history.back()">Cancel</button>
 </form>
+
 
 </body>
 </html>
