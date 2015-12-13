@@ -48,8 +48,9 @@ public class MealServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
         String id = req.getParameter("id");
-        repository.save(new UserMeal(id.isEmpty() ? null : Integer.valueOf(id), LocalDateTime.parse(req.getParameter("timeDate")),
+        repository.save(new UserMeal(id.isEmpty() ? null : Integer.valueOf(id), LocalDateTime.parse(req.getParameter("dateTime")),
                 req.getParameter("description"), Integer.valueOf(req.getParameter("calories"))));
-        resp.sendRedirect("/mealList");
+        req.setAttribute("meals", UserMealsUtil.getWithExceed(repository.getAll(), 2000));
+        req.getRequestDispatcher("mealList.jsp").forward(req, resp);
     }
 }
