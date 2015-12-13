@@ -27,8 +27,8 @@
     <c:forEach items="${meals}" var="meal">
         <tr>
             <td>
-                <fmt:parseDate value="${meal.dateTime}" pattern="y-m-dd'T'hh:mm" var="parsedDate" />
-                <fmt:formatDate pattern="YYYY MM dd HH:mm" value="${parsedDate}" var="formattedDate"/>
+                <fmt:parseDate value="${meal.dateTime}" pattern="y-M-dd'T'h:m" var="parsedDate" />
+                <fmt:formatDate pattern="YYYY.MM.dd HH:mm" value="${parsedDate}" var="formattedDate"/>
 
 
             ${formattedDate}</td>
