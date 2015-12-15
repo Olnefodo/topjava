@@ -21,12 +21,14 @@ public class User extends NamedEntity {
 
     public User(){}
 
-    public User (String name, String email, String password, Role... roles){
+    public User (String name, String email, String password, Role role, Role... roles){
         super(name);
         this.email = email;
         this.password = password;
         this.enabled = true;
-        //this.authorities = EnumSet.of(role, roles);
+        this.authorities = EnumSet.of(role, roles);
     }
+
+
 
 }
