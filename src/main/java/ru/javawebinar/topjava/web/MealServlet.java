@@ -1,23 +1,13 @@
 package ru.javawebinar.topjava.web;
 
-import ru.javawebinar.topjava.LoggerWrapper;
-import ru.javawebinar.topjava.UserMealRepository.InMemoryUserMealRepository;
-import ru.javawebinar.topjava.model.UserMeal;
-import ru.javawebinar.topjava.util.UserMealsUtil;
-
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.time.LocalDateTime;
 
 
 /**
  * Created by Oleksandr on 07.12.15.
  */
 public class MealServlet extends HttpServlet {
+    /*
     private InMemoryUserMealRepository repository= new InMemoryUserMealRepository();
     private static final LoggerWrapper LOG = LoggerWrapper.get(UserServlet.class);
     @Override
@@ -65,4 +55,5 @@ public class MealServlet extends HttpServlet {
         req.setAttribute("list", UserMealsUtil.getWithExceeded(repository.getAll(), 2000));
         req.getRequestDispatcher("/mealList.jsp").forward(req, resp);
     }
+    */
 }
