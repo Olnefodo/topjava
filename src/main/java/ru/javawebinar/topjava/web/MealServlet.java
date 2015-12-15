@@ -1,5 +1,6 @@
 package ru.javawebinar.topjava.web;
 
+import ru.javawebinar.topjava.LoggerWrapper;
 import ru.javawebinar.topjava.UserMealRepository.InMemoryUserMealRepository;
 import ru.javawebinar.topjava.model.UserMeal;
 import ru.javawebinar.topjava.util.UserMealsUtil;
@@ -18,7 +19,7 @@ import java.time.LocalDateTime;
  */
 public class MealServlet extends HttpServlet {
     private InMemoryUserMealRepository repository= new InMemoryUserMealRepository();
-
+    private static final LoggerWrapper LOG = LoggerWrapper.get(UserServlet.class);
     @Override
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
@@ -27,9 +28,11 @@ public class MealServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
         String action = req.getParameter("action");
         if (action == null) {
             req.setAttribute("list", UserMealsUtil.getWithExceeded(repository.getAll(), 2000));
+            LOG.debug("redirect to userlist");
             req.getRequestDispatcher("/mealList.jsp").forward(req, resp);
         }
         else if ("delete".equals(action)){
