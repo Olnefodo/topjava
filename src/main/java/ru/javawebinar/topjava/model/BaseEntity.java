@@ -10,6 +10,7 @@ public class BaseEntity {
     public Integer getId() {
         return id;
     }
+    public void setId(int id){ this.id = id; }
     public boolean isNew(){
         return (this.id == null);
     }
