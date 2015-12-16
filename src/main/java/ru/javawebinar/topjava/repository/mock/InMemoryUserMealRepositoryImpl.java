@@ -9,6 +9,7 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.stream.Collectors;
 
 /**
  * Created by Oleksandr on 16.12.15.
@@ -51,7 +52,7 @@ public class InMemoryUserMealRepositoryImpl implements UserMealRepository {
     }
 
     @Override
-    public Collection<UserMeal> getFilteredByTime() {
-        return null;
+    public Collection<UserMeal> getFilteredByTimeWithExceeded(Collection<UserMeal> userMeals) {
+        return userMeals.stream().collect(Collectors.groupingBy()
     }
 }

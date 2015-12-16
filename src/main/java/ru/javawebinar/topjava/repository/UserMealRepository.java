@@ -17,6 +17,6 @@ public interface UserMealRepository {
 
     Collection<UserMeal> getAll();
 
-    Collection<UserMeal> getFilteredByTime();
+    Collection<UserMeal> getFilteredByTimeWithExceeded(Collection<UserMeal> userMeals);
 
 }
