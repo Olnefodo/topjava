@@ -11,7 +11,7 @@ import java.util.Arrays;
 public class SpringMain {
     public static void main(String[] args) {
         ConfigurableApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring/spring-app.xml");
-        System.out.println(Arrays.toString(applicationContext.getBeanDefinitionNames()));
+        System.out.println("\n"+ Arrays.toString(applicationContext.getBeanDefinitionNames()) + "\n");
         applicationContext.close();
     }
 

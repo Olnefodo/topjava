@@ -1,5 +1,21 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.springframework.org/schema/beans ">
-    <bean class="ru.javawebinar.topjava.repository.mock.MockUserRepository" id="mockUserRepository"/>
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+<!--above schemes for config context-->
+        <!--<bean class="ru.javawebinar.topjava.repository.mock.MockUserRepository" id="mockUserRepository"/>-->
+    <!--<bean class="ru.javawebinar.topjava.service.UserServiceImpl">-->
+        <!--<property name="repository" ref="mockUserRepository"/> -->
+    <!--</bean>-->
+    <!--Before annotations were created in this way of inversion of control the dependencies were injected. And with setter -->
+
+
+    <!--please look for annotations-->
+    <context:annotation-config/>
+    <!--what packages we do scan for beans-->
+    <context:component-scan base-package="ru.javawebinar.**.repository"/>
+    <context:component-scan base-package="ru.javawebinar.**.service"/>
+    <context:component-scan base-package="ru.javawebinar.**.web"/>
+
 </beans>
