@@ -1,11 +1,17 @@
 package ru.javawebinar.topjava.repository.mock;
 
 import ru.javawebinar.topjava.model.UserMeal;
+import ru.javawebinar.topjava.model.UserMealWithExceed;
 import ru.javawebinar.topjava.repository.UserMealRepository;
+import ru.javawebinar.topjava.util.TimeUtil;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.Month;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -48,11 +54,8 @@ public class InMemoryUserMealRepositoryImpl implements UserMealRepository {
 
     @Override
     public Collection<UserMeal> getAll() {
-        return repository.values();
+        Collection<UserMeal> list = repository.values();
+
     }
 
-    @Override
-    public Collection<UserMeal> getFilteredByTimeWithExceeded(Collection<UserMeal> userMeals) {
-        return userMeals.stream().collect(Collectors.groupingBy()
-    }
 }
