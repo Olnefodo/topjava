@@ -17,11 +17,14 @@ public class UserServiceImpl implements UserService {
     private UserRepository repository;
     @Override
     public User save(User user) {
-        return null;
+        return repository.save(user);
     }
 
     @Override
     public void delete(int id) throws NotFoundException {
+        if (repository.delete(id) == false) {
+            throw new NotFoundException("");
+        }
 
     }
 
@@ -31,12 +34,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User get(int id) throws NotFoundException {
-        return null;
+        return repository.get(id);
     }
 
     @Override
     public User getUserByEmail(String email) throws NotFoundException {
-        return null;
+        return repository.getByEmail(email);
     }
 
     @Override
